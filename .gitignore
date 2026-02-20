@@ -1,5 +1,5 @@
 # Terraform generated files and directories
-.terraform/
+.terraform/   
 .terraform.lock.hcl
 *.tfstate
 *.tfstate.*backup

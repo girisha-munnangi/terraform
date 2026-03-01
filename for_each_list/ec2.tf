@@ -1,16 +1,16 @@
 resource "aws_instance" "girisha" {
-    for_each = var.instances
+    for_each = toset(var.instances)
+    instance_type = "t3.micro"
     ami = "ami-0220d79f3f480ecf5"
-    instance_type = each.value
     vpc_security_group_ids = [aws_security_group.allow_all.id]
     tags = {
         Name = each.key
         project = "roboshop"
     }
 }
-resource "aws_security_group" "allow_all" {
+
+resource "aws_security_group" "allow_all"{
     name = "allow-all-terraform"
-    description = "allowing all ports"
     egress {
         from_port = 0
         to_port = 0
@@ -24,6 +24,6 @@ resource "aws_security_group" "allow_all" {
         cidr_blocks = ["0.0.0.0/0"]
     }
     tags = {
-        Name = "allow-all-tls "
+        Name = "allow-all-terra"
     }
 }

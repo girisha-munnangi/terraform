@@ -1,19 +1,16 @@
 data "aws_ami" "joindevops" {
-    owners           = ["973714476881"] 
-    most_recent      = true
-    
+    owners = ["973714476881"]
+    most_recent = true
     filter {
-        name   = "name"
+        name = "name"
         values = ["Redhat-9-DevOps-Practice"]
     }
-
     filter {
-        name   = "root-device-type"
+        name = "root-device-type"
         values = ["ebs"]
     }
-
     filter {
-        name   = "virtualization-type"
+        name = "virtualization-type"
         values = ["hvm"]
     }
 }
@@ -23,13 +20,8 @@ output "ami_id" {
 }
 
 data "aws_instance" "terraform" {
-    instance_id = "i-0ffc99e961fc8152d"
-    
+    instance_id = "i-01bab49daaffcb29d"
 }
-
-output "aws_instance" {
-    value = data.aws_instance.terraform.public_ip
+output aws_instance {
+ value = data.aws_instance.terraform.public_ip
 }
-
-
-

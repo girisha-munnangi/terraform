@@ -1,10 +1,6 @@
 variable "instances" {
-    type = map
-    default = {
-        mongodb = "t3.micro"
-        redis = "t3.small"
-        mysql = "t3.micro"
-    }
+    type = list
+    default = ["mongodb","redis"]
 }
 variable "zone_id" {
     default = "Z07285551FQZIZ26CYO03"
